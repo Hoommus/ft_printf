@@ -6,7 +6,7 @@
 /*   By: vtarasiu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/01 12:16:11 by vtarasiu          #+#    #+#             */
-/*   Updated: 2018/07/01 15:02:18 by vtarasiu         ###   ########.fr       */
+/*   Updated: 2019/05/26 19:42:04 by vtarasiu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <limits.h>
+
+# ifdef __linux__
+#  define __printflike(a, b) __attribute__((format(printf, a, b)))
+# endif
 
 # define PRTF int ft_printf(const char *restrict format, ...) __printflike(1, 2)
 # define DRTF int ft_dprintf(int fd, const char *format, ...) __printflike(2, 3)
